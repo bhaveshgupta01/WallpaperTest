@@ -14,6 +14,15 @@
         <meta-data android:name="com.android.automotive"
             android:resource="@xml/automotive_app_desc"/>
 
+        <service
+            android:name=".YourAppService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="androidx.car.app.CarAppService" />
+                <category android:name="androidx.car.app.category.NAVIGATION"/>
+            </intent-filter>
+        </service>
+
     </application>
 
     <uses-feature
