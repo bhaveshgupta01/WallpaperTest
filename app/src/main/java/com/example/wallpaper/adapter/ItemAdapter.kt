@@ -17,8 +17,9 @@ import com.example.wallpaper.model.columnCount
 
 class ItemAdapter(
     private val context: Context,
-    private val dataset: List<Images>
-    ):
+    private val dataset: List<Images>,
+    val column: Int
+):
     RecyclerView.Adapter<ItemAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -27,8 +28,8 @@ class ItemAdapter(
         val layoutParam= view.findViewById<CardView>(R.id.CardViewPkt).layoutParams as ViewGroup.MarginLayoutParams
 
         //to get 2X3 or 3X2 as per screen
-        layoutParam.width=parent.width/columnCount().getCount(parent)
-        layoutParam.height=parent.height/ (6/columnCount().getCount(parent))
+        layoutParam.width=parent.width/column
+        layoutParam.height=parent.height/ (6/column)
 
         layoutParam.setMargins(margin, margin, margin, margin)
 

@@ -1,12 +1,12 @@
 package com.example.wallpaper.model
 
-import android.view.ViewGroup
 import java.lang.Math.min
 
 class columnCount {
-    public fun getCount(parent: ViewGroup):Int
+    public fun getCount(height: Int, width: Int):Int
     {
-        if (min(parent.width, parent.height) ==parent.width)
+
+        if (min(width, height) ==width)
             return 2
         else
             return 3
