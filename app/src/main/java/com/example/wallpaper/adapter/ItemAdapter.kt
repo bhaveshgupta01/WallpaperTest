@@ -12,8 +12,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.wallpaper.PreviewActivity
 import com.example.wallpaper.model.Images
 import com.example.wallpaper.R
-import com.example.wallpaper.model.columnCount
-
 
 class ItemAdapter(
     private val context: Context,
