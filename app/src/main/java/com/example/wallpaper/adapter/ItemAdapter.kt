@@ -22,10 +22,11 @@ class ItemAdapter(
     RecyclerView.Adapter<ItemAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val margin=5;
+        val margin=10;
         val view = LayoutInflater.from(context).inflate(R.layout.card_frame, parent, false)
         val layoutParam= view.findViewById<CardView>(R.id.CardViewPkt).layoutParams as ViewGroup.MarginLayoutParams
-        layoutParam.height=parent.height/columnCount().getCount(parent)
+        layoutParam.width=parent.width/columnCount().getCount(parent)
+        layoutParam.height=parent.height/ (6/columnCount().getCount(parent))
         layoutParam.setMargins(margin, margin, margin, margin)
 
         return ViewHolder(view)
