@@ -16,12 +16,12 @@ import com.example.wallpaper.R
 class ItemAdapter(
     private val context: Context,
     private val dataset: List<Images>,
-    val column: Int
+    private val column: Int
 ):
     RecyclerView.Adapter<ItemAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val margin=10;
+        val margin=10
         val view = LayoutInflater.from(context).inflate(R.layout.card_frame, parent, false)
         val layoutParam= view.findViewById<CardView>(R.id.CardViewPkt).layoutParams as ViewGroup.MarginLayoutParams
 
