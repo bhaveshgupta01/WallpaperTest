@@ -25,8 +25,11 @@ class ItemAdapter(
         val margin=10;
         val view = LayoutInflater.from(context).inflate(R.layout.card_frame, parent, false)
         val layoutParam= view.findViewById<CardView>(R.id.CardViewPkt).layoutParams as ViewGroup.MarginLayoutParams
+
+        //to get 2X3 or 3X2 as per screen
         layoutParam.width=parent.width/columnCount().getCount(parent)
         layoutParam.height=parent.height/ (6/columnCount().getCount(parent))
+
         layoutParam.setMargins(margin, margin, margin, margin)
 
         return ViewHolder(view)
@@ -35,15 +38,13 @@ class ItemAdapter(
     override fun getItemCount()= dataset.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = dataset[position]
-
         holder.bind(position)
 
+        //ADD API CODE HERE
         holder.imageButton.setOnClickListener {
             val context = holder.view.context
             val intent = Intent(context, PreviewActivity::class.java)
             intent.putExtra("letter", dataset[position].ImageResourceId)
-//            intent.putExtra("letter", holder.imageButton.id)
             context.startActivity(intent)
         }
     }
@@ -51,10 +52,7 @@ class ItemAdapter(
     inner class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
         val imageButton: ImageView = view.findViewById<ImageButton>(R.id.image_Button)
 
-        fun bind(position: Int)
-        {
-            imageButton.setImageResource(dataset[position].ImageResourceId)
-
-        }
+        fun bind(position: Int){
+            imageButton.setImageResource(dataset[position].ImageResourceId)}
     }
 }
