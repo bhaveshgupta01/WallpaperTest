@@ -1,15 +1,13 @@
 package com.example.wallpaperauto;
 
 import android.app.Service;
-import android.content.Intent;
-import android.os.IBinder;
+import com.google.android.apps.auto.sdk.CarActivity;
+import com.google.android.apps.auto.sdk.CarActivityService;
 
 import androidx.annotation.Nullable;
 
 class YourAppService extends Service {
-    @Nullable
-    @Override
-    public IBinder onBind(Intent intent) {
-        return null;
+    public Class<? extends CarActivity> getCarActivity() {
+        return (Class<? extends CarActivity>) TestServiceActivity.class;
     }
 }
